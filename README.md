@@ -6,19 +6,30 @@
 
 O ABNT GALÁCTICO é um editor para criação, organização, edição, formatação e exportação de trabalhos acadêmicos.
 
-## Requisitos
+## Importante: repositório GitHub x aplicação publicada
 
-- Node.js 20.19+ ou 22.12+ (recomendado para Vite 8)
-- npm 10+ (ou Bun)
+A página principal de um repositório GitHub mostra os arquivos do código. Ela não executa automaticamente a aplicação React. Para abrir o editor como um site, publique-o pelo **GitHub Pages** seguindo os passos abaixo.
+
+## Publicar automaticamente no GitHub Pages
+
+1. Envie todo o conteúdo deste projeto para a raiz do repositório (não envie a pasta externa `ABNT-Galactico` como uma subpasta).
+2. No GitHub, abra **Settings → Pages**.
+3. Em **Build and deployment → Source**, selecione **GitHub Actions**.
+4. Abra a aba **Actions** e aguarde o workflow **Publicar ABNT Galáctico no GitHub Pages** terminar com sucesso.
+5. O endereço do site aparecerá em **Settings → Pages**. Normalmente será `https://SEU-USUARIO.github.io/NOME-DO-REPOSITORIO/`.
+
+O Vite já está configurado para gerar os caminhos corretos dos arquivos quando o projeto é publicado em um repositório GitHub Pages.
 
 ## Executar localmente
+
+Requisitos: Node.js 22 (recomendado) e npm.
 
 ```bash
 npm install
 npm run dev
 ```
 
-Abra o endereço exibido pelo Vite (por padrão `http://localhost:3000`).
+Abra o endereço exibido pelo Vite, normalmente `http://localhost:3000`.
 
 ## Verificar o projeto
 
@@ -27,15 +38,6 @@ npm run lint
 npm run build
 npm run preview
 ```
-
-## Publicar no GitHub
-
-1. Crie um repositório no GitHub, por exemplo `ABNT-Galactico`.
-2. Extraia este ZIP no computador.
-3. Envie o conteúdo desta pasta para a raiz do repositório (incluindo `src/`, `package.json`, `index.html` e os arquivos de configuração).
-4. Faça o commit inicial.
-
-Não envie `node_modules/`, `dist/` nem arquivos `.env` com chaves privadas. O `.gitignore` já ignora esses itens.
 
 ## Publicar na Vercel
 
@@ -49,14 +51,18 @@ Não envie `node_modules/`, `dist/` nem arquivos `.env` com chaves privadas. O `
 ```text
 src/
   abnt/        Regras, formatação e conformidade ABNT
-  components/ Componentes e telas da aplicação
-  export/     Exportação para PDF, Word e pacote web
-  storage/    Persistência local dos documentos
+  components/  Componentes e telas da aplicação
+  export/      Exportação para PDF, Word e pacote web
+  storage/     Persistência local dos documentos
+.github/
+  workflows/   Verificação e publicação automatizada
 ```
 
-## Dados locais
+## Dados locais e privacidade
 
-Os identificadores de armazenamento existentes foram mantidos para preservar a compatibilidade com documentos e preferências já salvos no navegador. Limpar os dados do navegador pode apagar documentos armazenados localmente; mantenha cópias de segurança.
+Os identificadores de armazenamento existentes foram mantidos para preservar a compatibilidade com documentos e preferências já salvos no navegador. Os documentos são armazenados localmente neste navegador; limpar os dados do navegador pode apagá-los. Faça cópias de segurança regularmente.
+
+Não envie `node_modules/`, `dist/` nem arquivos `.env` com chaves privadas para o GitHub. O `.gitignore` ignora esses itens.
 
 ## Licença
 
